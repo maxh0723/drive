@@ -14,8 +14,8 @@ public class Library {
 			addBookToLibrary(new Book("The Bible", "God"));
 			addBookToLibrary(new Book("The Death of Expertise", "Tom Nichols"));
 			addBookToLibrary(new Book("The Great Gatsby", "F Scott Fitzgerald"));
+			System.out.println("Library[DEBUG] Pre-Seeded Library\n");
 		}
-		System.out.println("Library: DEBUG: Pre-seeded library\n");
 		debugPrintLibrary();
 	}
 	
@@ -95,12 +95,11 @@ public class Library {
 	}
 	
 	public void debugPrintLibrary() {
-		if(!allBooks.isEmpty()) {
-			System.out.println("==========================\n====== Library ===========\n==========================\n");
-			for(Book b : allBooks) {
-				System.out.println(b.toString());
-			}
-			System.out.println("==========================\n==== End of Library ======\n==========================\n");		
+		int i = 1;
+		System.out.println("==========================\n====== Library ===========\n==========================\n");
+		for(Book b : allBooks) {
+			System.out.println("[" + (i++) + "]: " + b.toString());
 		}
+		System.out.println("==========================\n==== End of Library ======\n==========================\n");		
 	}
 }

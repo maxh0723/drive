@@ -58,7 +58,9 @@ public class Book {
 	
 	@Override
 	public String toString() {
-		return "Book[title=" + title + "][author=" + author + "][loaned=" + loaned + "][CheckedOut=" + checkoutDate + "]";
+		return "Book[title=" + title + "][author=" + author + "][loaned=" + loaned + "]" +
+			((loaned == true) ? ("[borrower=" + borrower + "]") : "") + 
+			"[CheckedOut=" + checkoutDate + "]";
 	}
 	
 	public static class CheckoutDate {
