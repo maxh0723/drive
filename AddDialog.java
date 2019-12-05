@@ -11,18 +11,17 @@ public class AddDialog extends GBDialog{
 	JTextField authorField = addTextField("", 2,2,1,1);
 	
 	JButton addBook = addButton("Add Book", 3,1,1,1);
+	Library library;
 	
-	Book book = new Book();
-	
-	public AddDialog(JFrame parent, ArrayList<Book> books) {
+	public AddDialog(JFrame parent, Library library) {
 		super(parent);
-	
+		this.library = library;
 	}
 	
 	public void buttonClicked(JButton buttonObj) {
 		if (buttonObj == addBook) {
-			String loaner = "";
-			book.addBook(titleField.getText(), authorField.getText(), loaner);
+			Book book = new Book(titleField.getText(), authorField.getText());
+			library.addBookToLibrary(book);
 			dispose();
 		}
 	}

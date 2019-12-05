@@ -12,17 +12,22 @@ public class LoanDialog extends GBDialog {
 	JTextField dateField = addTextField("", 2,4,1,1);
 	
 	JButton loanButton = addButton ("Loan", 3,1,1,1);
+	Library library;
 	
-	public LoanDialog(JFrame parent, ArrayList<Book> books) {
+	public LoanDialog(JFrame parent, Library library) {
 		super(parent);
-	
+		this.library = library;
 	}
 	
 	public void buttonClicked(JButton buttonObj) {
 		if (buttonObj == loanButton) {
-			for (int i = 0; i < books.size(); i++) {
-				
+			try {
+				Book b = library.checkoutBook(titleField.getText(), loanerField.getText(), dateField.getText());
+				System.out.println("[CheckoutBook]: SUCCESS Book: " + b.toString());
+			} catch (LibraryException e) {
+				System.out.println("Error Checking Out Book: Title: " + titleLabel.getText() + ": " + e.getMessage());
 			}
+			dispose();
 		}
 	}
 }
