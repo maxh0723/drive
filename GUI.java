@@ -15,10 +15,10 @@ public class GUI extends GBFrame {
 	JTextField authorField = addTextField("Enter Author Here", 2, 2, 1, 1);
 
 	// Default (start with empty library)
-	// Library library = new Library();
+	Library library = new Library();
 
 	// Debug (preseed library with books)
-	Library library = new Library(true);
+	//Library library = new Library(true);
 	
 	public void buttonClicked(JButton buttonObj) {
 		if (buttonObj == addBook) {
